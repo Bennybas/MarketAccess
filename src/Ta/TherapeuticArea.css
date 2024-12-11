@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.header p {
+    color: #4a5568;
+    font-size: 1.1rem;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    perspective: 1000px;
+}
+
+.card {
+    height: 400px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    background: white;
+}
+
+.card-back {
+    background: white;
+    transform: rotateY(180deg);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.oncology .card-icon {
+    background: #FED7D7;
+    color: #E53E3E;
+}
+
+.cardiology .card-icon {
+    background: #B2F5EA;
+    color: #319795;
+}
+
+.neurology .card-icon {
+    background: #D6BCFA;
+    color: #6B46C1;
+}
+
+.card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #2D3748;
+}
+
+.indication-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+}
+
+.indication-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+}
+
+.oncology .indication-button {
+    background: #FED7D7;
+    color: #C53030;
+}
+
+.cardiology .indication-button {
+    background: #B2F5EA;
+    color: #2C7A7B;
+}
+
+.neurology .indication-button {
+    background: #D6BCFA;
+    color: #553C9A;
+}
+
+.indication-button:hover {
+    filter: brightness(0.95);
+    transform: translateX(5px);
+}
+
+@media (max-width: 768px) {
+    .cards-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    body {
+        padding: 1rem;
+    }
+}
