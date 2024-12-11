@@ -45,7 +45,7 @@ const TherapeuticArea = () => {
                 className="indication-button"
                 onClick={() => navigate("/overview")}
               >
-                Breast Cancer
+                Prostate Cancer
               </button>
               
               <button className="indication-button">Lung Cancer</button>
